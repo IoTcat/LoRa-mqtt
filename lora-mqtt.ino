@@ -20,13 +20,19 @@ void setup(){
    }
    LoRa.receive();
     mqtt.ini();
-    mqtt.subscribe("lalala");
-    mqtt.onReceived(msg);
+    mqtt.subscribe("#");
+    //mqtt.onReceived(msg);
     //mqtt.publish("lalala", "aaaaa");
 }
 
 
 void loop(){
-
+    if(mqtt.isNewMsg()){
+        String s, c;
+        mqtt.getNewMsg(s, c);
+        Serial.println(s);
+        Serial.println(c);
+        mqtt.publish("res/json", "lalla");
+    }
     mqtt.core();
 }
