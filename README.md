@@ -1,4 +1,6 @@
 # LoRa-mqtt
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt?ref=badge_shield)
+
 
 ## 使用案例 - 使用回调函数
 ```C++
@@ -57,3 +59,7 @@ void loop(){
 
 
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt?ref=badge_large)
