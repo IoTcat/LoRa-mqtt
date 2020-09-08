@@ -3,7 +3,7 @@
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt?ref=badge_shield)
 ![size](https://badge-size.herokuapp.com/iotcat/LoRa-mqtt/master/lora-mqtt.h)
  
-Use MQTT in LoRa communicationg..
+Use MQTT in LoRa communication..
 
 [简体中文](./zh.md)
 
