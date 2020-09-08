@@ -1,55 +1,54 @@
+
 # LoRa-mqtt
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FIoTcat%2FLoRa-mqtt?ref=badge_shield)
 ![size](https://badge-size.herokuapp.com/iotcat/LoRa-mqtt/master/lora-mqtt.h)
- 
-Use MQTT in LoRa communicationg..
 
-[English Version](./README.md)
+在LoRa通信中使用MQTT协议..   
 
-## Usage - with Callback Functions
+## 使用案例 - 使用回调函数
 ```C++
 
-#define LORA_SOCKET_IP "1.0.0.1" //need to be unique
+#define LORA_SOCKET_IP "1.0.0.1" //需唯一
 
 #include "lora-mqtt.h"
 
 LoRaMQTT mqtt;
 
 void setup(){
-    mqtt.ini(); //initalization
-    mqtt.onReceived(doIfRec); //register callback functions which will be executed when received message
-    mqtt.subscribe("Subject"); //subscribe MQTT subject
+    mqtt.ini(); //初始化
+    mqtt.onReceived(doIfRec); //注册回调函数，当接收到新消息时触发
+    mqtt.subscribe("主题名称"); //订阅mqtt主题
 }
 
 void doIfRec(String subject, String content){
-    //When received message this function will be executed.
+    //当收到新消息时执行这个函数中的内容
     
-    mqtt.publish("Subject", "Content"); //publish a mqtt message
+    mqtt.publish("主题", "内容"); //发布mqtt消息
 }
 
 void loop(){
-    //No delay() could be used in loop()
-    mqtt.core(); //Mqtt service core
+    //注意loop()全局不得有delay，否则会导致接收不稳定
+    mqtt.core(); //循环组件
 }
 
 ```
-## Usage - with If in loop()
+## 使用案例 - 使用条件触发
 ```C++
 
-#define LORA_SOCKET_IP "1.0.0.1" //need to be unique
+#define LORA_SOCKET_IP "1.0.0.1" //需唯一
 
 #include "lora-mqtt.h"
 
 LoRaMQTT mqtt;
 
 void setup(){
-    mqtt.ini(); //initalization
-    mqtt.subscribe("Subject"); //subscribe MQTT subject
+    mqtt.ini(); //初始化
+    mqtt.subscribe("主题名称"); //订阅mqtt主题
 }
 
 void loop(){
-    //When received message this function will be executed.
+    //注意loop()全局不得有delay，否则会导致接收不稳定
     
     if(mqtt.isNewMsg()){
         String subject, content;
@@ -57,9 +56,8 @@ void loop(){
         Serial.println(subject, content);
     }
     
-    mqtt.core(); //Mqtt service core
+    mqtt.core(); //循环组件
 }
 
 ```
-
 
